@@ -25,36 +25,70 @@ def generate_html(images):
   <meta charset="UTF-8">
   <title>Kenji Gallery</title>
   <style>
-    body { margin: 0; background: #111; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; }
-    .thumbs { display: flex; overflow-x: auto; gap: 10px; padding: 20px; background: #222; }
-    .thumbs img { height: 100px; cursor: pointer; border-radius: 6px; transition: transform 0.2s; }
-    .thumbs img:hover { transform: scale(1.05); }
-
-    .viewer { display: flex; flex: 1; padding: 20px; gap: 20px; align-items: flex-start; }
-    .viewer img { max-height: 500px; border-radius: 8px; background: #333; }
-    .desc { max-width: 400px; font-size: 16px; line-height: 1.5; }
-
-    .gallery::-webkit-scrollbar { height: 8px; }
-    .gallery::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 20px;
+      max-width: 1000px;
+    }
+    .grid img {
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: transform 0.2s;
+    }
+    .grid img:hover {
+      transform: scale(1.03);
+    }
+    .viewer {
+      display: none;
+      flex-direction: row;
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      align-items: flex-start;
+    }
+    .viewer img {
+      max-width: 400px;
+      border-radius: 8px;
+    }
+    .desc {
+      max-width: 500px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
-  <h1 style="text-align:center;">Kenji Gallery</h1>
+  <h1>Kenji Gallery</h1>
 
-  <div class="thumbs" id="thumbs">\n"""
+  <div class="grid" id="grid">\n"""
     for img in images:
         html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="{img}" onclick="showImage(\'{IMAGE_FOLDER}/{img}\', \'{img}\')">\n'
     html += """  </div>
 
-  <div class="viewer">
-    <img id="mainImage" src="" alt="Selected Image">
-    <div class="desc" id="description">Click an image to see its description.</div>
+  <div class="viewer" id="viewer">
+    <img id="mainImage" src="" alt="Selected">
+    <div class="desc" id="description">Click a photo to see its description.</div>
   </div>
 
   <script>
     function showImage(src, desc) {
       document.getElementById("mainImage").src = src;
       document.getElementById("description").textContent = desc;
+      document.getElementById("viewer").style.display = "flex";
+      window.scrollTo({ top: document.getElementById("viewer").offsetTop, behavior: "smooth" });
     }
   </script>
 </body>
@@ -66,4 +100,4 @@ if __name__ == "__main__":
     html = generate_html(images)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"Generated {OUTPUT_FILE} with {len(images)} images.")
+    print(f"✅ Generated {OUTPUT_FILE} with {len(images)} images.")
