@@ -51,25 +51,38 @@ def generate_html(images):
     .grid img:hover {
       transform: scale(1.03);
     }
-    .viewer {
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
       display: none;
-      flex-direction: row;
-      gap: 20px;
-      padding: 20px;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+    .overlay-content {
+      display: flex;
+      gap: 30px;
+      padding: 30px;
       max-width: 1000px;
+      width: 90%;
       align-items: flex-start;
     }
-    .viewer img {
-      max-width: 400px;
+    .overlay img {
+      max-height: 80vh;
       border-radius: 8px;
     }
     .desc {
-      max-width: 500px;
+      max-width: 400px;
       font-size: 16px;
       line-height: 1.5;
     }
-    .back-btn {
-      margin-top: 10px;
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
       background: #333;
       color: #fff;
       border: none;
@@ -77,7 +90,7 @@ def generate_html(images):
       border-radius: 4px;
       cursor: pointer;
     }
-    .back-btn:hover {
+    .close-btn:hover {
       background: #555;
     }
   </style>
@@ -85,32 +98,28 @@ def generate_html(images):
 <body>
   <h1>Kenji Gallery</h1>
 
-  <div class="grid" id="grid">\n"""
+  <div class="grid">\n"""
     for img in images:
-        html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="{img}" onclick="showImage(\'{IMAGE_FOLDER}/{img}\', \'{img}\')">\n'
+        html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="{img}" onclick="showOverlay(\'{IMAGE_FOLDER}/{img}\', \'{img}\')">\n'
     html += """  </div>
 
-  <div class="viewer" id="viewer">
-    <img id="mainImage" src="" alt="Selected">
-    <div class="desc">
-      <div id="description">Click a photo to see its description.</div>
-      <button class="back-btn" onclick="goBack()">Back to Grid</button>
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <img id="overlayImage" src="" alt="Selected">
+      <div class="desc" id="overlayDesc">Description</div>
     </div>
+    <button class="close-btn" onclick="closeOverlay()">Close</button>
   </div>
 
   <script>
-    function showImage(src, desc) {
-      document.getElementById("mainImage").src = src;
-      document.getElementById("description").textContent = desc;
-      document.getElementById("viewer").style.display = "flex";
-      document.getElementById("grid").style.display = "none";
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    function showOverlay(src, desc) {
+      document.getElementById("overlayImage").src = src;
+      document.getElementById("overlayDesc").textContent = desc;
+      document.getElementById("overlay").style.display = "flex";
     }
 
-    function goBack() {
-      document.getElementById("viewer").style.display = "none";
-      document.getElementById("grid").style.display = "grid";
-      window.scrollTo({ top: 0, behavior: "smooth" });
+    function closeOverlay() {
+      document.getElementById("overlay").style.display = "none";
     }
   </script>
 </body>
@@ -122,4 +131,4 @@ if __name__ == "__main__":
     html = generate_html(images)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated {OUTPUT_FILE} with {len(images)} images.")
+    print(f"✅ Generated {OUTPUT_FILE} with {len(images)} images and side-by-side overlay.")
