@@ -79,32 +79,40 @@ def generate_html(images, descriptions):
     .overlay-box {
       display: flex;
       flex-direction: row;
+      justify-content: center;
+      align-items: center;
       gap: 30px;
       padding: 30px;
       background: #222;
       border-radius: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
       max-width: 1000px;
       width: 90%;
-      align-items: flex-start;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
     .overlay-box img {
       max-height: 70vh;
       border-radius: 20px;
     }
+    .desc-wrap {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
     .desc {
-      max-width: 400px;
       font-size: 16px;
       line-height: 1.5;
+      margin-bottom: 20px;
+      max-width: 400px;
     }
     .back-btn {
-      margin-top: 20px;
       background: #444;
       color: #fff;
       border: none;
       padding: 8px 16px;
       border-radius: 12px;
       cursor: pointer;
+      align-self: flex-start;
     }
     .back-btn:hover {
       background: #666;
@@ -124,8 +132,8 @@ def generate_html(images, descriptions):
   <div class="overlay" id="overlay">
     <div class="overlay-box">
       <img id="overlayImage" src="" alt="">
-      <div class="desc">
-        <div id="overlayDesc">Description</div>
+      <div class="desc-wrap">
+        <div class="desc" id="overlayDesc">Description</div>
         <button class="back-btn" onclick="closeOverlay()">Back</button>
       </div>
     </div>
@@ -152,4 +160,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated {OUTPUT_FILE} with squircle overlay and back button.")
+    print(f"✅ Generated index.html with centered squircle layout and aligned back button.")
