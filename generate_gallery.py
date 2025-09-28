@@ -106,7 +106,7 @@ def generate_html(images, descriptions):
     .desc {
       font-size: 16px;
       line-height: 1.5;
-      margin-bottom: 20px;
+      margin: 40px 0 20px 0;
       max-width: 400px;
     }
     .back-btn {
