@@ -1,6 +1,7 @@
 import os
 
 IMAGE_FOLDER = "images"
+DESCRIPTION_FILE = "descriptions.txt"
 OUTPUT_FILE = "index.html"
 
 def extract_number(filename):
@@ -18,7 +19,20 @@ def get_sorted_images():
     numbered = [(extract_number(f), f) for f in images]
     return [f for num, f in sorted(numbered) if num is not None]
 
-def generate_html(images):
+def load_descriptions():
+    desc_map = {}
+    if os.path.exists(DESCRIPTION_FILE):
+        with open(DESCRIPTION_FILE, "r", encoding="utf-8") as f:
+            for line in f:
+                if "|" in line:
+                    key, desc = line.strip().split("|", 1)
+                    desc_map[key.strip()] = desc.strip()
+    return desc_map
+
+def get_base_name(filename):
+    return os.path.splitext(filename)[0]  # removes .jpg/.png
+
+def generate_html(images, descriptions):
     html = """<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,12 +114,14 @@ def generate_html(images):
 
   <div class="grid">\n"""
     for img in images:
-        html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="{img}" onclick="showOverlay(\'{IMAGE_FOLDER}/{img}\', \'{img}\')">\n'
+        base = get_base_name(img)
+        desc = descriptions.get(base, "No description available.")
+        html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="" onclick="showOverlay(\'{IMAGE_FOLDER}/{img}\', `{desc}`)">\n'
     html += """  </div>
 
   <div class="overlay" id="overlay">
     <div class="overlay-content">
-      <img id="overlayImage" src="" alt="Selected">
+      <img id="overlayImage" src="" alt="">
       <div class="desc" id="overlayDesc">Description</div>
     </div>
     <button class="close-btn" onclick="closeOverlay()">Close</button>
@@ -128,7 +144,8 @@ def generate_html(images):
 
 if __name__ == "__main__":
     images = get_sorted_images()
-    html = generate_html(images)
+    descriptions = load_descriptions()
+    html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated {OUTPUT_FILE} with {len(images)} images and side-by-side overlay.")
+    print(f"✅ Generated {OUTPUT_FILE} with {len(images)} images and overlay layout.")
