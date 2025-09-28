@@ -30,7 +30,7 @@ def load_descriptions():
     return desc_map
 
 def get_base_name(filename):
-    return os.path.splitext(filename)[0]  # removes .jpg/.png
+    return os.path.splitext(filename)[0]
 
 def generate_html(images, descriptions):
     html = """<!DOCTYPE html>
@@ -59,7 +59,7 @@ def generate_html(images, descriptions):
       width: 100%;
       height: auto;
       cursor: pointer;
-      border-radius: 6px;
+      border-radius: 12px;
       transition: transform 0.2s;
     }
     .grid img:hover {
@@ -76,36 +76,38 @@ def generate_html(images, descriptions):
       align-items: center;
       z-index: 999;
     }
-    .overlay-content {
+    .overlay-box {
       display: flex;
+      flex-direction: row;
       gap: 30px;
       padding: 30px;
+      background: #222;
+      border-radius: 30px;
       max-width: 1000px;
       width: 90%;
       align-items: flex-start;
+      box-shadow: 0 0 20px rgba(0,0,0,0.5);
     }
-    .overlay img {
-      max-height: 80vh;
-      border-radius: 8px;
+    .overlay-box img {
+      max-height: 70vh;
+      border-radius: 20px;
     }
     .desc {
       max-width: 400px;
       font-size: 16px;
       line-height: 1.5;
     }
-    .close-btn {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      background: #333;
+    .back-btn {
+      margin-top: 20px;
+      background: #444;
       color: #fff;
       border: none;
       padding: 8px 16px;
-      border-radius: 4px;
+      border-radius: 12px;
       cursor: pointer;
     }
-    .close-btn:hover {
-      background: #555;
+    .back-btn:hover {
+      background: #666;
     }
   </style>
 </head>
@@ -120,11 +122,13 @@ def generate_html(images, descriptions):
     html += """  </div>
 
   <div class="overlay" id="overlay">
-    <div class="overlay-content">
+    <div class="overlay-box">
       <img id="overlayImage" src="" alt="">
-      <div class="desc" id="overlayDesc">Description</div>
+      <div class="desc">
+        <div id="overlayDesc">Description</div>
+        <button class="back-btn" onclick="closeOverlay()">Back</button>
+      </div>
     </div>
-    <button class="close-btn" onclick="closeOverlay()">Close</button>
   </div>
 
   <script>
@@ -148,4 +152,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated {OUTPUT_FILE} with {len(images)} images and overlay layout.")
+    print(f"✅ Generated {OUTPUT_FILE} with squircle overlay and back button.")
