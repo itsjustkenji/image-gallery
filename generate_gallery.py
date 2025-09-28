@@ -73,7 +73,7 @@ def generate_html(images, descriptions):
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.95);
+      background: rgba(0, 0, 0, 0.6); /* softened transparency */
       display: none;
       justify-content: center;
       align-items: center;
@@ -164,4 +164,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with visible grid, tight squircle overlay, and aligned back button.")
+    print(f"✅ Generated index.html with softened overlay background and tight layout.")
