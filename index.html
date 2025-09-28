@@ -4,222 +4,241 @@
   <meta charset="UTF-8">
   <title>Kenji Gallery</title>
   <style>
-    body { margin: 0; background: #111; color: #fff; font-family: sans-serif; }
-    .gallery { display: flex; overflow-x: auto; gap: 10px; padding: 20px; scroll-snap-type: x mandatory; }
-    .gallery img { height: 300px; scroll-snap-align: start; border-radius: 8px; object-fit: cover; background: #222; }
+    body { margin: 0; background: #111; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; }
+    .thumbs { display: flex; overflow-x: auto; gap: 10px; padding: 20px; background: #222; }
+    .thumbs img { height: 100px; cursor: pointer; border-radius: 6px; transition: transform 0.2s; }
+    .thumbs img:hover { transform: scale(1.05); }
+
+    .viewer { display: flex; flex: 1; padding: 20px; gap: 20px; align-items: flex-start; }
+    .viewer img { max-height: 500px; border-radius: 8px; background: #333; }
+    .desc { max-width: 400px; font-size: 16px; line-height: 1.5; }
+
     .gallery::-webkit-scrollbar { height: 8px; }
     .gallery::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
   </style>
 </head>
 <body>
   <h1 style="text-align:center;">Kenji Gallery</h1>
-  <div class="gallery">
-    <img src="images/1 TRANS.jpg" alt="1 TRANS.jpg">
-    <img src="images/2 TRANS.jpg" alt="2 TRANS.jpg">
-    <img src="images/3 TRANS.jpg" alt="3 TRANS.jpg">
-    <img src="images/4 TRANS.jpg" alt="4 TRANS.jpg">
-    <img src="images/5 TRANS.jpg" alt="5 TRANS.jpg">
-    <img src="images/6 TRANS.jpg" alt="6 TRANS.jpg">
-    <img src="images/7 TRANS.jpg" alt="7 TRANS.jpg">
-    <img src="images/8 TRANS.jpg" alt="8 TRANS.jpg">
-    <img src="images/9 TRANS.jpg" alt="9 TRANS.jpg">
-    <img src="images/10 TRANS.jpg" alt="10 TRANS.jpg">
-    <img src="images/11 TRANS.jpg" alt="11 TRANS.jpg">
-    <img src="images/12 TRANS.jpg" alt="12 TRANS.jpg">
-    <img src="images/13 TRANS.jpg" alt="13 TRANS.jpg">
-    <img src="images/14 TRANS.jpg" alt="14 TRANS.jpg">
-    <img src="images/15 TRANS.jpg" alt="15 TRANS.jpg">
-    <img src="images/16 TRANS.jpg" alt="16 TRANS.jpg">
-    <img src="images/17 TRANS.jpg" alt="17 TRANS.jpg">
-    <img src="images/18 TRANS.jpg" alt="18 TRANS.jpg">
-    <img src="images/19 TRANS.jpg" alt="19 TRANS.jpg">
-    <img src="images/20 TRANS.jpg" alt="20 TRANS.jpg">
-    <img src="images/21 TRANS.jpg" alt="21 TRANS.jpg">
-    <img src="images/22 TRANS.jpg" alt="22 TRANS.jpg">
-    <img src="images/23 TRANS.jpg" alt="23 TRANS.jpg">
-    <img src="images/24 TRANS.jpg" alt="24 TRANS.jpg">
-    <img src="images/25 TRANS.jpg" alt="25 TRANS.jpg">
-    <img src="images/26 TRANS.jpg" alt="26 TRANS.jpg">
-    <img src="images/27 TRANS.jpg" alt="27 TRANS.jpg">
-    <img src="images/28 TRANS.jpg" alt="28 TRANS.jpg">
-    <img src="images/29 TRANS.jpg" alt="29 TRANS.jpg">
-    <img src="images/30 TRANS.jpg" alt="30 TRANS.jpg">
-    <img src="images/31 TRANS.jpg" alt="31 TRANS.jpg">
-    <img src="images/32 TRANS.jpg" alt="32 TRANS.jpg">
-    <img src="images/33 TRANS.jpg" alt="33 TRANS.jpg">
-    <img src="images/34 TRANS.jpg" alt="34 TRANS.jpg">
-    <img src="images/35 TRANS.jpg" alt="35 TRANS.jpg">
-    <img src="images/36 TRANS.jpg" alt="36 TRANS.jpg">
-    <img src="images/37 TRANS.jpg" alt="37 TRANS.jpg">
-    <img src="images/38 TRANS.jpg" alt="38 TRANS.jpg">
-    <img src="images/39 TRANS.jpg" alt="39 TRANS.jpg">
-    <img src="images/40 TRANS.jpg" alt="40 TRANS.jpg">
-    <img src="images/41 TRANS.jpg" alt="41 TRANS.jpg">
-    <img src="images/42 TRANS.jpg" alt="42 TRANS.jpg">
-    <img src="images/43 TRANS.jpg" alt="43 TRANS.jpg">
-    <img src="images/44 TRANS.jpg" alt="44 TRANS.jpg">
-    <img src="images/45 TRANS.jpg" alt="45 TRANS.jpg">
-    <img src="images/46 TRANS.jpg" alt="46 TRANS.jpg">
-    <img src="images/47 TRANS.jpg" alt="47 TRANS.jpg">
-    <img src="images/48 TRANS.jpg" alt="48 TRANS.jpg">
-    <img src="images/49 TRANS.jpg" alt="49 TRANS.jpg">
-    <img src="images/50 TRANS.jpg" alt="50 TRANS.jpg">
-    <img src="images/51 TRANS.jpg" alt="51 TRANS.jpg">
-    <img src="images/52 TRANS.jpg" alt="52 TRANS.jpg">
-    <img src="images/53 TRANS.jpg" alt="53 TRANS.jpg">
-    <img src="images/54 TRANS.jpg" alt="54 TRANS.jpg">
-    <img src="images/55 TRANS.jpg" alt="55 TRANS.jpg">
-    <img src="images/56 TRANS.jpg" alt="56 TRANS.jpg">
-    <img src="images/57 TRANS.jpg" alt="57 TRANS.jpg">
-    <img src="images/58 TRANS.jpg" alt="58 TRANS.jpg">
-    <img src="images/59 TRANS.jpg" alt="59 TRANS.jpg">
-    <img src="images/60 TRANS.jpg" alt="60 TRANS.jpg">
-    <img src="images/61 TRANS.jpg" alt="61 TRANS.jpg">
-    <img src="images/62 TRANS.jpg" alt="62 TRANS.jpg">
-    <img src="images/63 TRANS.jpg" alt="63 TRANS.jpg">
-    <img src="images/64 TRANS.jpg" alt="64 TRANS.jpg">
-    <img src="images/65 TRANS.jpg" alt="65 TRANS.jpg">
-    <img src="images/66 TRANS.jpg" alt="66 TRANS.jpg">
-    <img src="images/67 TRANS.jpg" alt="67 TRANS.jpg">
-    <img src="images/68 TRANS.jpg" alt="68 TRANS.jpg">
-    <img src="images/69 TRANS.jpg" alt="69 TRANS.jpg">
-    <img src="images/70 TRANS.jpg" alt="70 TRANS.jpg">
-    <img src="images/71 TRANS.jpg" alt="71 TRANS.jpg">
-    <img src="images/72 TRANS.jpg" alt="72 TRANS.jpg">
-    <img src="images/73 TRANS.jpg" alt="73 TRANS.jpg">
-    <img src="images/74 TRANS.jpg" alt="74 TRANS.jpg">
-    <img src="images/75 TRANS.jpg" alt="75 TRANS.jpg">
-    <img src="images/76 TRANS.jpg" alt="76 TRANS.jpg">
-    <img src="images/77 TRANS.jpg" alt="77 TRANS.jpg">
-    <img src="images/78 TRANS.jpg" alt="78 TRANS.jpg">
-    <img src="images/79 TRANS.jpg" alt="79 TRANS.jpg">
-    <img src="images/80 TRANS.jpg" alt="80 TRANS.jpg">
-    <img src="images/81 TRANS.jpg" alt="81 TRANS.jpg">
-    <img src="images/82 TRANS.jpg" alt="82 TRANS.jpg">
-    <img src="images/83 TRANS.jpg" alt="83 TRANS.jpg">
-    <img src="images/84 TRANS.jpg" alt="84 TRANS.jpg">
-    <img src="images/85 TRANS.jpg" alt="85 TRANS.jpg">
-    <img src="images/86 TRANS.jpg" alt="86 TRANS.jpg">
-    <img src="images/87 TRANS.jpg" alt="87 TRANS.jpg">
-    <img src="images/88 TRANS.jpg" alt="88 TRANS.jpg">
-    <img src="images/89 TRANS.jpg" alt="89 TRANS.jpg">
-    <img src="images/90 TRANS.jpg" alt="90 TRANS.jpg">
-    <img src="images/91 TRANS.jpg" alt="91 TRANS.jpg">
-    <img src="images/92 TRANS.jpg" alt="92 TRANS.jpg">
-    <img src="images/93 TRANS.jpg" alt="93 TRANS.jpg">
-    <img src="images/94 TRANS.jpg" alt="94 TRANS.jpg">
-    <img src="images/95 TRANS.jpg" alt="95 TRANS.jpg">
-    <img src="images/96 TRANS.jpg" alt="96 TRANS.jpg">
-    <img src="images/97 TRANS.jpg" alt="97 TRANS.jpg">
-    <img src="images/98 TRANS.jpg" alt="98 TRANS.jpg">
-    <img src="images/99 TRANS.jpg" alt="99 TRANS.jpg">
-    <img src="images/100 TRANS.jpg" alt="100 TRANS.jpg">
-    <img src="images/101 TRANS.jpg" alt="101 TRANS.jpg">
-    <img src="images/102 TRANS.jpg" alt="102 TRANS.jpg">
-    <img src="images/103 TRANS.jpg" alt="103 TRANS.jpg">
-    <img src="images/104 TRANS.jpg" alt="104 TRANS.jpg">
-    <img src="images/105 TRANS.jpg" alt="105 TRANS.jpg">
-    <img src="images/106 TRANS.jpg" alt="106 TRANS.jpg">
-    <img src="images/107 TRANS.jpg" alt="107 TRANS.jpg">
-    <img src="images/108 TRANS.jpg" alt="108 TRANS.jpg">
-    <img src="images/109 TRANS.jpg" alt="109 TRANS.jpg">
-    <img src="images/110 TRANS.jpg" alt="110 TRANS.jpg">
-    <img src="images/111 TRANS.jpg" alt="111 TRANS.jpg">
-    <img src="images/112 TRANS.jpg" alt="112 TRANS.jpg">
-    <img src="images/113 TRANS.jpg" alt="113 TRANS.jpg">
-    <img src="images/114 TRANS.jpg" alt="114 TRANS.jpg">
-    <img src="images/115 TRANS.jpg" alt="115 TRANS.jpg">
-    <img src="images/116 TRANS.png" alt="116 TRANS.png">
-    <img src="images/117 TRANS.jpg" alt="117 TRANS.jpg">
-    <img src="images/118 TRANS.jpg" alt="118 TRANS.jpg">
-    <img src="images/119 TRANS.jpg" alt="119 TRANS.jpg">
-    <img src="images/120 TRANS.jpg" alt="120 TRANS.jpg">
-    <img src="images/121 TRANS.png" alt="121 TRANS.png">
-    <img src="images/122 TRANS.jpg" alt="122 TRANS.jpg">
-    <img src="images/123 TRANS.jpg" alt="123 TRANS.jpg">
-    <img src="images/124 TRANS.jpg" alt="124 TRANS.jpg">
-    <img src="images/125 TRANS.jpg" alt="125 TRANS.jpg">
-    <img src="images/126 TRANS.jpg" alt="126 TRANS.jpg">
-    <img src="images/127 TRANS.jpg" alt="127 TRANS.jpg">
-    <img src="images/128 TRANS.jpg" alt="128 TRANS.jpg">
-    <img src="images/129 TRANS.jpg" alt="129 TRANS.jpg">
-    <img src="images/130 TRANS.jpg" alt="130 TRANS.jpg">
-    <img src="images/131 TRANS.jpg" alt="131 TRANS.jpg">
-    <img src="images/132 TRANS.jpg" alt="132 TRANS.jpg">
-    <img src="images/133 TRANS.jpg" alt="133 TRANS.jpg">
-    <img src="images/134 TRANS.jpg" alt="134 TRANS.jpg">
-    <img src="images/135 TRANS.jpg" alt="135 TRANS.jpg">
-    <img src="images/136 TRANS.jpg" alt="136 TRANS.jpg">
-    <img src="images/137 TRANS.jpg" alt="137 TRANS.jpg">
-    <img src="images/138 TRANS.jpg" alt="138 TRANS.jpg">
-    <img src="images/139 TRANS.jpg" alt="139 TRANS.jpg">
-    <img src="images/140 TRANS.jpg" alt="140 TRANS.jpg">
-    <img src="images/141 TRANS.jpg" alt="141 TRANS.jpg">
-    <img src="images/142 TRANS.jpg" alt="142 TRANS.jpg">
-    <img src="images/143 TRANS.jpg" alt="143 TRANS.jpg">
-    <img src="images/144 TRANS.jpg" alt="144 TRANS.jpg">
-    <img src="images/145 TRANS.jpg" alt="145 TRANS.jpg">
-    <img src="images/146 TRANS.jpg" alt="146 TRANS.jpg">
-    <img src="images/147 TRANS.jpg" alt="147 TRANS.jpg">
-    <img src="images/148 TRANS.jpg" alt="148 TRANS.jpg">
-    <img src="images/149 TRANS.jpg" alt="149 TRANS.jpg">
-    <img src="images/150 TRANS.jpg" alt="150 TRANS.jpg">
-    <img src="images/151 TRANS.jpg" alt="151 TRANS.jpg">
-    <img src="images/152 TRANS.jpg" alt="152 TRANS.jpg">
-    <img src="images/153 TRANS.jpg" alt="153 TRANS.jpg">
-    <img src="images/154 TRANS.jpg" alt="154 TRANS.jpg">
-    <img src="images/155 TRANS.jpg" alt="155 TRANS.jpg">
-    <img src="images/156 TRANS.jpg" alt="156 TRANS.jpg">
-    <img src="images/157 TRANS.jpg" alt="157 TRANS.jpg">
-    <img src="images/158 TRANS.jpg" alt="158 TRANS.jpg">
-    <img src="images/159 TRANS.jpg" alt="159 TRANS.jpg">
-    <img src="images/160 TRANS.jpg" alt="160 TRANS.jpg">
-    <img src="images/161 TRANS.jpg" alt="161 TRANS.jpg">
-    <img src="images/162 TRANS.jpg" alt="162 TRANS.jpg">
-    <img src="images/163 TRANS.jpg" alt="163 TRANS.jpg">
-    <img src="images/164 TRANS.jpg" alt="164 TRANS.jpg">
-    <img src="images/165 TRANS.jpg" alt="165 TRANS.jpg">
-    <img src="images/166 TRANS.jpg" alt="166 TRANS.jpg">
-    <img src="images/167 TRANS.jpg" alt="167 TRANS.jpg">
-    <img src="images/168 TRANS.jpg" alt="168 TRANS.jpg">
-    <img src="images/169 TRANS.jpg" alt="169 TRANS.jpg">
-    <img src="images/170 TRANS.jpg" alt="170 TRANS.jpg">
-    <img src="images/171 TRANS.jpg" alt="171 TRANS.jpg">
-    <img src="images/172 TRANS.jpg" alt="172 TRANS.jpg">
-    <img src="images/173 TRANS.jpg" alt="173 TRANS.jpg">
-    <img src="images/174 TRANS.jpg" alt="174 TRANS.jpg">
-    <img src="images/175 TRANS.jpg" alt="175 TRANS.jpg">
-    <img src="images/176 TRANS.jpg" alt="176 TRANS.jpg">
-    <img src="images/177 TRANS.jpg" alt="177 TRANS.jpg">
-    <img src="images/178 TRANS.jpg" alt="178 TRANS.jpg">
-    <img src="images/179 TRANS.jpg" alt="179 TRANS.jpg">
-    <img src="images/180 TRANS.jpg" alt="180 TRANS.jpg">
-    <img src="images/181 TRANS.jpg" alt="181 TRANS.jpg">
-    <img src="images/182 TRANS.jpg" alt="182 TRANS.jpg">
-    <img src="images/183 TRANS.jpg" alt="183 TRANS.jpg">
-    <img src="images/184 TRANS.jpg" alt="184 TRANS.jpg">
-    <img src="images/185 TRANS.jpg" alt="185 TRANS.jpg">
-    <img src="images/186 TRANS.jpg" alt="186 TRANS.jpg">
-    <img src="images/187 TRANS.jpg" alt="187 TRANS.jpg">
-    <img src="images/188 TRANS.jpg" alt="188 TRANS.jpg">
-    <img src="images/189 TRANS.jpg" alt="189 TRANS.jpg">
-    <img src="images/190 TRANS.jpg" alt="190 TRANS.jpg">
-    <img src="images/191 TRANS.jpg" alt="191 TRANS.jpg">
-    <img src="images/192 TRANS.jpg" alt="192 TRANS.jpg">
-    <img src="images/193 TRANS.jpg" alt="193 TRANS.jpg">
-    <img src="images/194 TRANS.jpg" alt="194 TRANS.jpg">
-    <img src="images/195 TRANS.jpg" alt="195 TRANS.jpg">
-    <img src="images/196 TRANS.jpg" alt="196 TRANS.jpg">
-    <img src="images/197 TRANS.jpg" alt="197 TRANS.jpg">
-    <img src="images/198 TRANS.jpg" alt="198 TRANS.jpg">
-    <img src="images/199 TRANS.jpg" alt="199 TRANS.jpg">
-    <img src="images/200 TRANS.jpg" alt="200 TRANS.jpg">
-    <img src="images/201 TRANS.jpg" alt="201 TRANS.jpg">
-    <img src="images/202 TRANS.jpg" alt="202 TRANS.jpg">
-    <img src="images/203 TRANS.jpg" alt="203 TRANS.jpg">
-    <img src="images/204 TRANS.jpg" alt="204 TRANS.jpg">
-    <img src="images/205 TRANS.jpg" alt="205 TRANS.jpg">
-    <img src="images/206 TRANS.jpg" alt="206 TRANS.jpg">
+
+  <div class="thumbs" id="thumbs">
+    <img src="images/1 TRANS.jpg" alt="1 TRANS.jpg" onclick="showImage('images/1 TRANS.jpg', '1 TRANS.jpg')">
+    <img src="images/2 TRANS.jpg" alt="2 TRANS.jpg" onclick="showImage('images/2 TRANS.jpg', '2 TRANS.jpg')">
+    <img src="images/3 TRANS.jpg" alt="3 TRANS.jpg" onclick="showImage('images/3 TRANS.jpg', '3 TRANS.jpg')">
+    <img src="images/4 TRANS.jpg" alt="4 TRANS.jpg" onclick="showImage('images/4 TRANS.jpg', '4 TRANS.jpg')">
+    <img src="images/5 TRANS.jpg" alt="5 TRANS.jpg" onclick="showImage('images/5 TRANS.jpg', '5 TRANS.jpg')">
+    <img src="images/6 TRANS.jpg" alt="6 TRANS.jpg" onclick="showImage('images/6 TRANS.jpg', '6 TRANS.jpg')">
+    <img src="images/7 TRANS.jpg" alt="7 TRANS.jpg" onclick="showImage('images/7 TRANS.jpg', '7 TRANS.jpg')">
+    <img src="images/8 TRANS.jpg" alt="8 TRANS.jpg" onclick="showImage('images/8 TRANS.jpg', '8 TRANS.jpg')">
+    <img src="images/9 TRANS.jpg" alt="9 TRANS.jpg" onclick="showImage('images/9 TRANS.jpg', '9 TRANS.jpg')">
+    <img src="images/10 TRANS.jpg" alt="10 TRANS.jpg" onclick="showImage('images/10 TRANS.jpg', '10 TRANS.jpg')">
+    <img src="images/11 TRANS.jpg" alt="11 TRANS.jpg" onclick="showImage('images/11 TRANS.jpg', '11 TRANS.jpg')">
+    <img src="images/12 TRANS.jpg" alt="12 TRANS.jpg" onclick="showImage('images/12 TRANS.jpg', '12 TRANS.jpg')">
+    <img src="images/13 TRANS.jpg" alt="13 TRANS.jpg" onclick="showImage('images/13 TRANS.jpg', '13 TRANS.jpg')">
+    <img src="images/14 TRANS.jpg" alt="14 TRANS.jpg" onclick="showImage('images/14 TRANS.jpg', '14 TRANS.jpg')">
+    <img src="images/15 TRANS.jpg" alt="15 TRANS.jpg" onclick="showImage('images/15 TRANS.jpg', '15 TRANS.jpg')">
+    <img src="images/16 TRANS.jpg" alt="16 TRANS.jpg" onclick="showImage('images/16 TRANS.jpg', '16 TRANS.jpg')">
+    <img src="images/17 TRANS.jpg" alt="17 TRANS.jpg" onclick="showImage('images/17 TRANS.jpg', '17 TRANS.jpg')">
+    <img src="images/18 TRANS.jpg" alt="18 TRANS.jpg" onclick="showImage('images/18 TRANS.jpg', '18 TRANS.jpg')">
+    <img src="images/19 TRANS.jpg" alt="19 TRANS.jpg" onclick="showImage('images/19 TRANS.jpg', '19 TRANS.jpg')">
+    <img src="images/20 TRANS.jpg" alt="20 TRANS.jpg" onclick="showImage('images/20 TRANS.jpg', '20 TRANS.jpg')">
+    <img src="images/21 TRANS.jpg" alt="21 TRANS.jpg" onclick="showImage('images/21 TRANS.jpg', '21 TRANS.jpg')">
+    <img src="images/22 TRANS.jpg" alt="22 TRANS.jpg" onclick="showImage('images/22 TRANS.jpg', '22 TRANS.jpg')">
+    <img src="images/23 TRANS.jpg" alt="23 TRANS.jpg" onclick="showImage('images/23 TRANS.jpg', '23 TRANS.jpg')">
+    <img src="images/24 TRANS.jpg" alt="24 TRANS.jpg" onclick="showImage('images/24 TRANS.jpg', '24 TRANS.jpg')">
+    <img src="images/25 TRANS.jpg" alt="25 TRANS.jpg" onclick="showImage('images/25 TRANS.jpg', '25 TRANS.jpg')">
+    <img src="images/26 TRANS.jpg" alt="26 TRANS.jpg" onclick="showImage('images/26 TRANS.jpg', '26 TRANS.jpg')">
+    <img src="images/27 TRANS.jpg" alt="27 TRANS.jpg" onclick="showImage('images/27 TRANS.jpg', '27 TRANS.jpg')">
+    <img src="images/28 TRANS.jpg" alt="28 TRANS.jpg" onclick="showImage('images/28 TRANS.jpg', '28 TRANS.jpg')">
+    <img src="images/29 TRANS.jpg" alt="29 TRANS.jpg" onclick="showImage('images/29 TRANS.jpg', '29 TRANS.jpg')">
+    <img src="images/30 TRANS.jpg" alt="30 TRANS.jpg" onclick="showImage('images/30 TRANS.jpg', '30 TRANS.jpg')">
+    <img src="images/31 TRANS.jpg" alt="31 TRANS.jpg" onclick="showImage('images/31 TRANS.jpg', '31 TRANS.jpg')">
+    <img src="images/32 TRANS.jpg" alt="32 TRANS.jpg" onclick="showImage('images/32 TRANS.jpg', '32 TRANS.jpg')">
+    <img src="images/33 TRANS.jpg" alt="33 TRANS.jpg" onclick="showImage('images/33 TRANS.jpg', '33 TRANS.jpg')">
+    <img src="images/34 TRANS.jpg" alt="34 TRANS.jpg" onclick="showImage('images/34 TRANS.jpg', '34 TRANS.jpg')">
+    <img src="images/35 TRANS.jpg" alt="35 TRANS.jpg" onclick="showImage('images/35 TRANS.jpg', '35 TRANS.jpg')">
+    <img src="images/36 TRANS.jpg" alt="36 TRANS.jpg" onclick="showImage('images/36 TRANS.jpg', '36 TRANS.jpg')">
+    <img src="images/37 TRANS.jpg" alt="37 TRANS.jpg" onclick="showImage('images/37 TRANS.jpg', '37 TRANS.jpg')">
+    <img src="images/38 TRANS.jpg" alt="38 TRANS.jpg" onclick="showImage('images/38 TRANS.jpg', '38 TRANS.jpg')">
+    <img src="images/39 TRANS.jpg" alt="39 TRANS.jpg" onclick="showImage('images/39 TRANS.jpg', '39 TRANS.jpg')">
+    <img src="images/40 TRANS.jpg" alt="40 TRANS.jpg" onclick="showImage('images/40 TRANS.jpg', '40 TRANS.jpg')">
+    <img src="images/41 TRANS.jpg" alt="41 TRANS.jpg" onclick="showImage('images/41 TRANS.jpg', '41 TRANS.jpg')">
+    <img src="images/42 TRANS.jpg" alt="42 TRANS.jpg" onclick="showImage('images/42 TRANS.jpg', '42 TRANS.jpg')">
+    <img src="images/43 TRANS.jpg" alt="43 TRANS.jpg" onclick="showImage('images/43 TRANS.jpg', '43 TRANS.jpg')">
+    <img src="images/44 TRANS.jpg" alt="44 TRANS.jpg" onclick="showImage('images/44 TRANS.jpg', '44 TRANS.jpg')">
+    <img src="images/45 TRANS.jpg" alt="45 TRANS.jpg" onclick="showImage('images/45 TRANS.jpg', '45 TRANS.jpg')">
+    <img src="images/46 TRANS.jpg" alt="46 TRANS.jpg" onclick="showImage('images/46 TRANS.jpg', '46 TRANS.jpg')">
+    <img src="images/47 TRANS.jpg" alt="47 TRANS.jpg" onclick="showImage('images/47 TRANS.jpg', '47 TRANS.jpg')">
+    <img src="images/48 TRANS.jpg" alt="48 TRANS.jpg" onclick="showImage('images/48 TRANS.jpg', '48 TRANS.jpg')">
+    <img src="images/49 TRANS.jpg" alt="49 TRANS.jpg" onclick="showImage('images/49 TRANS.jpg', '49 TRANS.jpg')">
+    <img src="images/50 TRANS.jpg" alt="50 TRANS.jpg" onclick="showImage('images/50 TRANS.jpg', '50 TRANS.jpg')">
+    <img src="images/51 TRANS.jpg" alt="51 TRANS.jpg" onclick="showImage('images/51 TRANS.jpg', '51 TRANS.jpg')">
+    <img src="images/52 TRANS.jpg" alt="52 TRANS.jpg" onclick="showImage('images/52 TRANS.jpg', '52 TRANS.jpg')">
+    <img src="images/53 TRANS.jpg" alt="53 TRANS.jpg" onclick="showImage('images/53 TRANS.jpg', '53 TRANS.jpg')">
+    <img src="images/54 TRANS.jpg" alt="54 TRANS.jpg" onclick="showImage('images/54 TRANS.jpg', '54 TRANS.jpg')">
+    <img src="images/55 TRANS.jpg" alt="55 TRANS.jpg" onclick="showImage('images/55 TRANS.jpg', '55 TRANS.jpg')">
+    <img src="images/56 TRANS.jpg" alt="56 TRANS.jpg" onclick="showImage('images/56 TRANS.jpg', '56 TRANS.jpg')">
+    <img src="images/57 TRANS.jpg" alt="57 TRANS.jpg" onclick="showImage('images/57 TRANS.jpg', '57 TRANS.jpg')">
+    <img src="images/58 TRANS.jpg" alt="58 TRANS.jpg" onclick="showImage('images/58 TRANS.jpg', '58 TRANS.jpg')">
+    <img src="images/59 TRANS.jpg" alt="59 TRANS.jpg" onclick="showImage('images/59 TRANS.jpg', '59 TRANS.jpg')">
+    <img src="images/60 TRANS.jpg" alt="60 TRANS.jpg" onclick="showImage('images/60 TRANS.jpg', '60 TRANS.jpg')">
+    <img src="images/61 TRANS.jpg" alt="61 TRANS.jpg" onclick="showImage('images/61 TRANS.jpg', '61 TRANS.jpg')">
+    <img src="images/62 TRANS.jpg" alt="62 TRANS.jpg" onclick="showImage('images/62 TRANS.jpg', '62 TRANS.jpg')">
+    <img src="images/63 TRANS.jpg" alt="63 TRANS.jpg" onclick="showImage('images/63 TRANS.jpg', '63 TRANS.jpg')">
+    <img src="images/64 TRANS.jpg" alt="64 TRANS.jpg" onclick="showImage('images/64 TRANS.jpg', '64 TRANS.jpg')">
+    <img src="images/65 TRANS.jpg" alt="65 TRANS.jpg" onclick="showImage('images/65 TRANS.jpg', '65 TRANS.jpg')">
+    <img src="images/66 TRANS.jpg" alt="66 TRANS.jpg" onclick="showImage('images/66 TRANS.jpg', '66 TRANS.jpg')">
+    <img src="images/67 TRANS.jpg" alt="67 TRANS.jpg" onclick="showImage('images/67 TRANS.jpg', '67 TRANS.jpg')">
+    <img src="images/68 TRANS.jpg" alt="68 TRANS.jpg" onclick="showImage('images/68 TRANS.jpg', '68 TRANS.jpg')">
+    <img src="images/69 TRANS.jpg" alt="69 TRANS.jpg" onclick="showImage('images/69 TRANS.jpg', '69 TRANS.jpg')">
+    <img src="images/70 TRANS.jpg" alt="70 TRANS.jpg" onclick="showImage('images/70 TRANS.jpg', '70 TRANS.jpg')">
+    <img src="images/71 TRANS.jpg" alt="71 TRANS.jpg" onclick="showImage('images/71 TRANS.jpg', '71 TRANS.jpg')">
+    <img src="images/72 TRANS.jpg" alt="72 TRANS.jpg" onclick="showImage('images/72 TRANS.jpg', '72 TRANS.jpg')">
+    <img src="images/73 TRANS.jpg" alt="73 TRANS.jpg" onclick="showImage('images/73 TRANS.jpg', '73 TRANS.jpg')">
+    <img src="images/74 TRANS.jpg" alt="74 TRANS.jpg" onclick="showImage('images/74 TRANS.jpg', '74 TRANS.jpg')">
+    <img src="images/75 TRANS.jpg" alt="75 TRANS.jpg" onclick="showImage('images/75 TRANS.jpg', '75 TRANS.jpg')">
+    <img src="images/76 TRANS.jpg" alt="76 TRANS.jpg" onclick="showImage('images/76 TRANS.jpg', '76 TRANS.jpg')">
+    <img src="images/77 TRANS.jpg" alt="77 TRANS.jpg" onclick="showImage('images/77 TRANS.jpg', '77 TRANS.jpg')">
+    <img src="images/78 TRANS.jpg" alt="78 TRANS.jpg" onclick="showImage('images/78 TRANS.jpg', '78 TRANS.jpg')">
+    <img src="images/79 TRANS.jpg" alt="79 TRANS.jpg" onclick="showImage('images/79 TRANS.jpg', '79 TRANS.jpg')">
+    <img src="images/80 TRANS.jpg" alt="80 TRANS.jpg" onclick="showImage('images/80 TRANS.jpg', '80 TRANS.jpg')">
+    <img src="images/81 TRANS.jpg" alt="81 TRANS.jpg" onclick="showImage('images/81 TRANS.jpg', '81 TRANS.jpg')">
+    <img src="images/82 TRANS.jpg" alt="82 TRANS.jpg" onclick="showImage('images/82 TRANS.jpg', '82 TRANS.jpg')">
+    <img src="images/83 TRANS.jpg" alt="83 TRANS.jpg" onclick="showImage('images/83 TRANS.jpg', '83 TRANS.jpg')">
+    <img src="images/84 TRANS.jpg" alt="84 TRANS.jpg" onclick="showImage('images/84 TRANS.jpg', '84 TRANS.jpg')">
+    <img src="images/85 TRANS.jpg" alt="85 TRANS.jpg" onclick="showImage('images/85 TRANS.jpg', '85 TRANS.jpg')">
+    <img src="images/86 TRANS.jpg" alt="86 TRANS.jpg" onclick="showImage('images/86 TRANS.jpg', '86 TRANS.jpg')">
+    <img src="images/87 TRANS.jpg" alt="87 TRANS.jpg" onclick="showImage('images/87 TRANS.jpg', '87 TRANS.jpg')">
+    <img src="images/88 TRANS.jpg" alt="88 TRANS.jpg" onclick="showImage('images/88 TRANS.jpg', '88 TRANS.jpg')">
+    <img src="images/89 TRANS.jpg" alt="89 TRANS.jpg" onclick="showImage('images/89 TRANS.jpg', '89 TRANS.jpg')">
+    <img src="images/90 TRANS.jpg" alt="90 TRANS.jpg" onclick="showImage('images/90 TRANS.jpg', '90 TRANS.jpg')">
+    <img src="images/91 TRANS.jpg" alt="91 TRANS.jpg" onclick="showImage('images/91 TRANS.jpg', '91 TRANS.jpg')">
+    <img src="images/92 TRANS.jpg" alt="92 TRANS.jpg" onclick="showImage('images/92 TRANS.jpg', '92 TRANS.jpg')">
+    <img src="images/93 TRANS.jpg" alt="93 TRANS.jpg" onclick="showImage('images/93 TRANS.jpg', '93 TRANS.jpg')">
+    <img src="images/94 TRANS.jpg" alt="94 TRANS.jpg" onclick="showImage('images/94 TRANS.jpg', '94 TRANS.jpg')">
+    <img src="images/95 TRANS.jpg" alt="95 TRANS.jpg" onclick="showImage('images/95 TRANS.jpg', '95 TRANS.jpg')">
+    <img src="images/96 TRANS.jpg" alt="96 TRANS.jpg" onclick="showImage('images/96 TRANS.jpg', '96 TRANS.jpg')">
+    <img src="images/97 TRANS.jpg" alt="97 TRANS.jpg" onclick="showImage('images/97 TRANS.jpg', '97 TRANS.jpg')">
+    <img src="images/98 TRANS.jpg" alt="98 TRANS.jpg" onclick="showImage('images/98 TRANS.jpg', '98 TRANS.jpg')">
+    <img src="images/99 TRANS.jpg" alt="99 TRANS.jpg" onclick="showImage('images/99 TRANS.jpg', '99 TRANS.jpg')">
+    <img src="images/100 TRANS.jpg" alt="100 TRANS.jpg" onclick="showImage('images/100 TRANS.jpg', '100 TRANS.jpg')">
+    <img src="images/101 TRANS.jpg" alt="101 TRANS.jpg" onclick="showImage('images/101 TRANS.jpg', '101 TRANS.jpg')">
+    <img src="images/102 TRANS.jpg" alt="102 TRANS.jpg" onclick="showImage('images/102 TRANS.jpg', '102 TRANS.jpg')">
+    <img src="images/103 TRANS.jpg" alt="103 TRANS.jpg" onclick="showImage('images/103 TRANS.jpg', '103 TRANS.jpg')">
+    <img src="images/104 TRANS.jpg" alt="104 TRANS.jpg" onclick="showImage('images/104 TRANS.jpg', '104 TRANS.jpg')">
+    <img src="images/105 TRANS.jpg" alt="105 TRANS.jpg" onclick="showImage('images/105 TRANS.jpg', '105 TRANS.jpg')">
+    <img src="images/106 TRANS.jpg" alt="106 TRANS.jpg" onclick="showImage('images/106 TRANS.jpg', '106 TRANS.jpg')">
+    <img src="images/107 TRANS.jpg" alt="107 TRANS.jpg" onclick="showImage('images/107 TRANS.jpg', '107 TRANS.jpg')">
+    <img src="images/108 TRANS.jpg" alt="108 TRANS.jpg" onclick="showImage('images/108 TRANS.jpg', '108 TRANS.jpg')">
+    <img src="images/109 TRANS.jpg" alt="109 TRANS.jpg" onclick="showImage('images/109 TRANS.jpg', '109 TRANS.jpg')">
+    <img src="images/110 TRANS.jpg" alt="110 TRANS.jpg" onclick="showImage('images/110 TRANS.jpg', '110 TRANS.jpg')">
+    <img src="images/111 TRANS.jpg" alt="111 TRANS.jpg" onclick="showImage('images/111 TRANS.jpg', '111 TRANS.jpg')">
+    <img src="images/112 TRANS.jpg" alt="112 TRANS.jpg" onclick="showImage('images/112 TRANS.jpg', '112 TRANS.jpg')">
+    <img src="images/113 TRANS.jpg" alt="113 TRANS.jpg" onclick="showImage('images/113 TRANS.jpg', '113 TRANS.jpg')">
+    <img src="images/114 TRANS.jpg" alt="114 TRANS.jpg" onclick="showImage('images/114 TRANS.jpg', '114 TRANS.jpg')">
+    <img src="images/115 TRANS.jpg" alt="115 TRANS.jpg" onclick="showImage('images/115 TRANS.jpg', '115 TRANS.jpg')">
+    <img src="images/116 TRANS.png" alt="116 TRANS.png" onclick="showImage('images/116 TRANS.png', '116 TRANS.png')">
+    <img src="images/117 TRANS.jpg" alt="117 TRANS.jpg" onclick="showImage('images/117 TRANS.jpg', '117 TRANS.jpg')">
+    <img src="images/118 TRANS.jpg" alt="118 TRANS.jpg" onclick="showImage('images/118 TRANS.jpg', '118 TRANS.jpg')">
+    <img src="images/119 TRANS.jpg" alt="119 TRANS.jpg" onclick="showImage('images/119 TRANS.jpg', '119 TRANS.jpg')">
+    <img src="images/120 TRANS.jpg" alt="120 TRANS.jpg" onclick="showImage('images/120 TRANS.jpg', '120 TRANS.jpg')">
+    <img src="images/121 TRANS.png" alt="121 TRANS.png" onclick="showImage('images/121 TRANS.png', '121 TRANS.png')">
+    <img src="images/122 TRANS.jpg" alt="122 TRANS.jpg" onclick="showImage('images/122 TRANS.jpg', '122 TRANS.jpg')">
+    <img src="images/123 TRANS.jpg" alt="123 TRANS.jpg" onclick="showImage('images/123 TRANS.jpg', '123 TRANS.jpg')">
+    <img src="images/124 TRANS.jpg" alt="124 TRANS.jpg" onclick="showImage('images/124 TRANS.jpg', '124 TRANS.jpg')">
+    <img src="images/125 TRANS.jpg" alt="125 TRANS.jpg" onclick="showImage('images/125 TRANS.jpg', '125 TRANS.jpg')">
+    <img src="images/126 TRANS.jpg" alt="126 TRANS.jpg" onclick="showImage('images/126 TRANS.jpg', '126 TRANS.jpg')">
+    <img src="images/127 TRANS.jpg" alt="127 TRANS.jpg" onclick="showImage('images/127 TRANS.jpg', '127 TRANS.jpg')">
+    <img src="images/128 TRANS.jpg" alt="128 TRANS.jpg" onclick="showImage('images/128 TRANS.jpg', '128 TRANS.jpg')">
+    <img src="images/129 TRANS.jpg" alt="129 TRANS.jpg" onclick="showImage('images/129 TRANS.jpg', '129 TRANS.jpg')">
+    <img src="images/130 TRANS.jpg" alt="130 TRANS.jpg" onclick="showImage('images/130 TRANS.jpg', '130 TRANS.jpg')">
+    <img src="images/131 TRANS.jpg" alt="131 TRANS.jpg" onclick="showImage('images/131 TRANS.jpg', '131 TRANS.jpg')">
+    <img src="images/132 TRANS.jpg" alt="132 TRANS.jpg" onclick="showImage('images/132 TRANS.jpg', '132 TRANS.jpg')">
+    <img src="images/133 TRANS.jpg" alt="133 TRANS.jpg" onclick="showImage('images/133 TRANS.jpg', '133 TRANS.jpg')">
+    <img src="images/134 TRANS.jpg" alt="134 TRANS.jpg" onclick="showImage('images/134 TRANS.jpg', '134 TRANS.jpg')">
+    <img src="images/135 TRANS.jpg" alt="135 TRANS.jpg" onclick="showImage('images/135 TRANS.jpg', '135 TRANS.jpg')">
+    <img src="images/136 TRANS.jpg" alt="136 TRANS.jpg" onclick="showImage('images/136 TRANS.jpg', '136 TRANS.jpg')">
+    <img src="images/137 TRANS.jpg" alt="137 TRANS.jpg" onclick="showImage('images/137 TRANS.jpg', '137 TRANS.jpg')">
+    <img src="images/138 TRANS.jpg" alt="138 TRANS.jpg" onclick="showImage('images/138 TRANS.jpg', '138 TRANS.jpg')">
+    <img src="images/139 TRANS.jpg" alt="139 TRANS.jpg" onclick="showImage('images/139 TRANS.jpg', '139 TRANS.jpg')">
+    <img src="images/140 TRANS.jpg" alt="140 TRANS.jpg" onclick="showImage('images/140 TRANS.jpg', '140 TRANS.jpg')">
+    <img src="images/141 TRANS.jpg" alt="141 TRANS.jpg" onclick="showImage('images/141 TRANS.jpg', '141 TRANS.jpg')">
+    <img src="images/142 TRANS.jpg" alt="142 TRANS.jpg" onclick="showImage('images/142 TRANS.jpg', '142 TRANS.jpg')">
+    <img src="images/143 TRANS.jpg" alt="143 TRANS.jpg" onclick="showImage('images/143 TRANS.jpg', '143 TRANS.jpg')">
+    <img src="images/144 TRANS.jpg" alt="144 TRANS.jpg" onclick="showImage('images/144 TRANS.jpg', '144 TRANS.jpg')">
+    <img src="images/145 TRANS.jpg" alt="145 TRANS.jpg" onclick="showImage('images/145 TRANS.jpg', '145 TRANS.jpg')">
+    <img src="images/146 TRANS.jpg" alt="146 TRANS.jpg" onclick="showImage('images/146 TRANS.jpg', '146 TRANS.jpg')">
+    <img src="images/147 TRANS.jpg" alt="147 TRANS.jpg" onclick="showImage('images/147 TRANS.jpg', '147 TRANS.jpg')">
+    <img src="images/148 TRANS.jpg" alt="148 TRANS.jpg" onclick="showImage('images/148 TRANS.jpg', '148 TRANS.jpg')">
+    <img src="images/149 TRANS.jpg" alt="149 TRANS.jpg" onclick="showImage('images/149 TRANS.jpg', '149 TRANS.jpg')">
+    <img src="images/150 TRANS.jpg" alt="150 TRANS.jpg" onclick="showImage('images/150 TRANS.jpg', '150 TRANS.jpg')">
+    <img src="images/151 TRANS.jpg" alt="151 TRANS.jpg" onclick="showImage('images/151 TRANS.jpg', '151 TRANS.jpg')">
+    <img src="images/152 TRANS.jpg" alt="152 TRANS.jpg" onclick="showImage('images/152 TRANS.jpg', '152 TRANS.jpg')">
+    <img src="images/153 TRANS.jpg" alt="153 TRANS.jpg" onclick="showImage('images/153 TRANS.jpg', '153 TRANS.jpg')">
+    <img src="images/154 TRANS.jpg" alt="154 TRANS.jpg" onclick="showImage('images/154 TRANS.jpg', '154 TRANS.jpg')">
+    <img src="images/155 TRANS.jpg" alt="155 TRANS.jpg" onclick="showImage('images/155 TRANS.jpg', '155 TRANS.jpg')">
+    <img src="images/156 TRANS.jpg" alt="156 TRANS.jpg" onclick="showImage('images/156 TRANS.jpg', '156 TRANS.jpg')">
+    <img src="images/157 TRANS.jpg" alt="157 TRANS.jpg" onclick="showImage('images/157 TRANS.jpg', '157 TRANS.jpg')">
+    <img src="images/158 TRANS.jpg" alt="158 TRANS.jpg" onclick="showImage('images/158 TRANS.jpg', '158 TRANS.jpg')">
+    <img src="images/159 TRANS.jpg" alt="159 TRANS.jpg" onclick="showImage('images/159 TRANS.jpg', '159 TRANS.jpg')">
+    <img src="images/160 TRANS.jpg" alt="160 TRANS.jpg" onclick="showImage('images/160 TRANS.jpg', '160 TRANS.jpg')">
+    <img src="images/161 TRANS.jpg" alt="161 TRANS.jpg" onclick="showImage('images/161 TRANS.jpg', '161 TRANS.jpg')">
+    <img src="images/162 TRANS.jpg" alt="162 TRANS.jpg" onclick="showImage('images/162 TRANS.jpg', '162 TRANS.jpg')">
+    <img src="images/163 TRANS.jpg" alt="163 TRANS.jpg" onclick="showImage('images/163 TRANS.jpg', '163 TRANS.jpg')">
+    <img src="images/164 TRANS.jpg" alt="164 TRANS.jpg" onclick="showImage('images/164 TRANS.jpg', '164 TRANS.jpg')">
+    <img src="images/165 TRANS.jpg" alt="165 TRANS.jpg" onclick="showImage('images/165 TRANS.jpg', '165 TRANS.jpg')">
+    <img src="images/166 TRANS.jpg" alt="166 TRANS.jpg" onclick="showImage('images/166 TRANS.jpg', '166 TRANS.jpg')">
+    <img src="images/167 TRANS.jpg" alt="167 TRANS.jpg" onclick="showImage('images/167 TRANS.jpg', '167 TRANS.jpg')">
+    <img src="images/168 TRANS.jpg" alt="168 TRANS.jpg" onclick="showImage('images/168 TRANS.jpg', '168 TRANS.jpg')">
+    <img src="images/169 TRANS.jpg" alt="169 TRANS.jpg" onclick="showImage('images/169 TRANS.jpg', '169 TRANS.jpg')">
+    <img src="images/170 TRANS.jpg" alt="170 TRANS.jpg" onclick="showImage('images/170 TRANS.jpg', '170 TRANS.jpg')">
+    <img src="images/171 TRANS.jpg" alt="171 TRANS.jpg" onclick="showImage('images/171 TRANS.jpg', '171 TRANS.jpg')">
+    <img src="images/172 TRANS.jpg" alt="172 TRANS.jpg" onclick="showImage('images/172 TRANS.jpg', '172 TRANS.jpg')">
+    <img src="images/173 TRANS.jpg" alt="173 TRANS.jpg" onclick="showImage('images/173 TRANS.jpg', '173 TRANS.jpg')">
+    <img src="images/174 TRANS.jpg" alt="174 TRANS.jpg" onclick="showImage('images/174 TRANS.jpg', '174 TRANS.jpg')">
+    <img src="images/175 TRANS.jpg" alt="175 TRANS.jpg" onclick="showImage('images/175 TRANS.jpg', '175 TRANS.jpg')">
+    <img src="images/176 TRANS.jpg" alt="176 TRANS.jpg" onclick="showImage('images/176 TRANS.jpg', '176 TRANS.jpg')">
+    <img src="images/177 TRANS.jpg" alt="177 TRANS.jpg" onclick="showImage('images/177 TRANS.jpg', '177 TRANS.jpg')">
+    <img src="images/178 TRANS.jpg" alt="178 TRANS.jpg" onclick="showImage('images/178 TRANS.jpg', '178 TRANS.jpg')">
+    <img src="images/179 TRANS.jpg" alt="179 TRANS.jpg" onclick="showImage('images/179 TRANS.jpg', '179 TRANS.jpg')">
+    <img src="images/180 TRANS.jpg" alt="180 TRANS.jpg" onclick="showImage('images/180 TRANS.jpg', '180 TRANS.jpg')">
+    <img src="images/181 TRANS.jpg" alt="181 TRANS.jpg" onclick="showImage('images/181 TRANS.jpg', '181 TRANS.jpg')">
+    <img src="images/182 TRANS.jpg" alt="182 TRANS.jpg" onclick="showImage('images/182 TRANS.jpg', '182 TRANS.jpg')">
+    <img src="images/183 TRANS.jpg" alt="183 TRANS.jpg" onclick="showImage('images/183 TRANS.jpg', '183 TRANS.jpg')">
+    <img src="images/184 TRANS.jpg" alt="184 TRANS.jpg" onclick="showImage('images/184 TRANS.jpg', '184 TRANS.jpg')">
+    <img src="images/185 TRANS.jpg" alt="185 TRANS.jpg" onclick="showImage('images/185 TRANS.jpg', '185 TRANS.jpg')">
+    <img src="images/186 TRANS.jpg" alt="186 TRANS.jpg" onclick="showImage('images/186 TRANS.jpg', '186 TRANS.jpg')">
+    <img src="images/187 TRANS.jpg" alt="187 TRANS.jpg" onclick="showImage('images/187 TRANS.jpg', '187 TRANS.jpg')">
+    <img src="images/188 TRANS.jpg" alt="188 TRANS.jpg" onclick="showImage('images/188 TRANS.jpg', '188 TRANS.jpg')">
+    <img src="images/189 TRANS.jpg" alt="189 TRANS.jpg" onclick="showImage('images/189 TRANS.jpg', '189 TRANS.jpg')">
+    <img src="images/190 TRANS.jpg" alt="190 TRANS.jpg" onclick="showImage('images/190 TRANS.jpg', '190 TRANS.jpg')">
+    <img src="images/191 TRANS.jpg" alt="191 TRANS.jpg" onclick="showImage('images/191 TRANS.jpg', '191 TRANS.jpg')">
+    <img src="images/192 TRANS.jpg" alt="192 TRANS.jpg" onclick="showImage('images/192 TRANS.jpg', '192 TRANS.jpg')">
+    <img src="images/193 TRANS.jpg" alt="193 TRANS.jpg" onclick="showImage('images/193 TRANS.jpg', '193 TRANS.jpg')">
+    <img src="images/194 TRANS.jpg" alt="194 TRANS.jpg" onclick="showImage('images/194 TRANS.jpg', '194 TRANS.jpg')">
+    <img src="images/195 TRANS.jpg" alt="195 TRANS.jpg" onclick="showImage('images/195 TRANS.jpg', '195 TRANS.jpg')">
+    <img src="images/196 TRANS.jpg" alt="196 TRANS.jpg" onclick="showImage('images/196 TRANS.jpg', '196 TRANS.jpg')">
+    <img src="images/197 TRANS.jpg" alt="197 TRANS.jpg" onclick="showImage('images/197 TRANS.jpg', '197 TRANS.jpg')">
+    <img src="images/198 TRANS.jpg" alt="198 TRANS.jpg" onclick="showImage('images/198 TRANS.jpg', '198 TRANS.jpg')">
+    <img src="images/199 TRANS.jpg" alt="199 TRANS.jpg" onclick="showImage('images/199 TRANS.jpg', '199 TRANS.jpg')">
+    <img src="images/200 TRANS.jpg" alt="200 TRANS.jpg" onclick="showImage('images/200 TRANS.jpg', '200 TRANS.jpg')">
+    <img src="images/201 TRANS.jpg" alt="201 TRANS.jpg" onclick="showImage('images/201 TRANS.jpg', '201 TRANS.jpg')">
+    <img src="images/202 TRANS.jpg" alt="202 TRANS.jpg" onclick="showImage('images/202 TRANS.jpg', '202 TRANS.jpg')">
+    <img src="images/203 TRANS.jpg" alt="203 TRANS.jpg" onclick="showImage('images/203 TRANS.jpg', '203 TRANS.jpg')">
+    <img src="images/204 TRANS.jpg" alt="204 TRANS.jpg" onclick="showImage('images/204 TRANS.jpg', '204 TRANS.jpg')">
+    <img src="images/205 TRANS.jpg" alt="205 TRANS.jpg" onclick="showImage('images/205 TRANS.jpg', '205 TRANS.jpg')">
+    <img src="images/206 TRANS.jpg" alt="206 TRANS.jpg" onclick="showImage('images/206 TRANS.jpg', '206 TRANS.jpg')">
   </div>
+
+  <div class="viewer">
+    <img id="mainImage" src="" alt="Selected Image">
+    <div class="desc" id="description">Click an image to see its description.</div>
+  </div>
+
+  <script>
+    function showImage(src, desc) {
+      document.getElementById("mainImage").src = src;
+      document.getElementById("description").textContent = desc;
+    }
+  </script>
 </body>
 </html>

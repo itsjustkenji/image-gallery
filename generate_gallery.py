@@ -25,19 +25,40 @@ def generate_html(images):
   <meta charset="UTF-8">
   <title>Kenji Gallery</title>
   <style>
-    body { margin: 0; background: #111; color: #fff; font-family: sans-serif; }
-    .gallery { display: flex; overflow-x: auto; gap: 10px; padding: 20px; scroll-snap-type: x mandatory; }
-    .gallery img { height: 300px; scroll-snap-align: start; border-radius: 8px; object-fit: cover; background: #222; }
+    body { margin: 0; background: #111; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; }
+    .thumbs { display: flex; overflow-x: auto; gap: 10px; padding: 20px; background: #222; }
+    .thumbs img { height: 100px; cursor: pointer; border-radius: 6px; transition: transform 0.2s; }
+    .thumbs img:hover { transform: scale(1.05); }
+
+    .viewer { display: flex; flex: 1; padding: 20px; gap: 20px; align-items: flex-start; }
+    .viewer img { max-height: 500px; border-radius: 8px; background: #333; }
+    .desc { max-width: 400px; font-size: 16px; line-height: 1.5; }
+
     .gallery::-webkit-scrollbar { height: 8px; }
     .gallery::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
   </style>
 </head>
 <body>
   <h1 style="text-align:center;">Kenji Gallery</h1>
-  <div class="gallery">\n"""
+
+  <div class="thumbs" id="thumbs">\n"""
     for img in images:
-        html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="{img}">\n'
-    html += "  </div>\n</body>\n</html>"
+        html += f'    <img src="{IMAGE_FOLDER}/{img}" alt="{img}" onclick="showImage(\'{IMAGE_FOLDER}/{img}\', \'{img}\')">\n'
+    html += """  </div>
+
+  <div class="viewer">
+    <img id="mainImage" src="" alt="Selected Image">
+    <div class="desc" id="description">Click an image to see its description.</div>
+  </div>
+
+  <script>
+    function showImage(src, desc) {
+      document.getElementById("mainImage").src = src;
+      document.getElementById("description").textContent = desc;
+    }
+  </script>
+</body>
+</html>"""
     return html
 
 if __name__ == "__main__":
