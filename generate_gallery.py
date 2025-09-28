@@ -68,6 +68,18 @@ def generate_html(images):
       font-size: 16px;
       line-height: 1.5;
     }
+    .back-btn {
+      margin-top: 10px;
+      background: #333;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .back-btn:hover {
+      background: #555;
+    }
   </style>
 </head>
 <body>
@@ -80,7 +92,10 @@ def generate_html(images):
 
   <div class="viewer" id="viewer">
     <img id="mainImage" src="" alt="Selected">
-    <div class="desc" id="description">Click a photo to see its description.</div>
+    <div class="desc">
+      <div id="description">Click a photo to see its description.</div>
+      <button class="back-btn" onclick="goBack()">Back to Grid</button>
+    </div>
   </div>
 
   <script>
@@ -88,7 +103,14 @@ def generate_html(images):
       document.getElementById("mainImage").src = src;
       document.getElementById("description").textContent = desc;
       document.getElementById("viewer").style.display = "flex";
-      window.scrollTo({ top: document.getElementById("viewer").offsetTop, behavior: "smooth" });
+      document.getElementById("grid").style.display = "none";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function goBack() {
+      document.getElementById("viewer").style.display = "none";
+      document.getElementById("grid").style.display = "grid";
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   </script>
 </body>
