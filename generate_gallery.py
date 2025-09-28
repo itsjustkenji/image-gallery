@@ -42,7 +42,7 @@ def generate_html(images, descriptions):
     body {
       margin: 0;
       font-family: sans-serif;
-      background: #111;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -54,6 +54,9 @@ def generate_html(images, descriptions):
       gap: 10px;
       padding: 20px;
       max-width: 1000px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
     .grid img {
       width: 100%;
@@ -80,24 +83,25 @@ def generate_html(images, descriptions):
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       gap: 30px;
       padding: 30px;
       background: #222;
       border-radius: 30px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      max-width: 1000px;
-      width: 90%;
+      max-width: fit-content;
+      max-height: fit-content;
     }
     .overlay-box img {
       max-height: 70vh;
+      max-width: 40vw;
       border-radius: 20px;
     }
     .desc-wrap {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: flex-start;
+      justify-content: center;
     }
     .desc {
       font-size: 16px;
@@ -160,4 +164,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with centered squircle layout and aligned back button.")
+    print(f"✅ Generated index.html with visible grid, tight squircle overlay, and aligned back button.")
