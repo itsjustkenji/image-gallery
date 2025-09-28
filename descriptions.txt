@@ -1,1 +1,2 @@
-1 TRANS|testing
+1 TRANS|Lentil seeds from Fabaceae family
+2 TRANS|Rosids subclass leaf structure
