@@ -71,6 +71,23 @@ def generate_html(images, descriptions, transactions, money):
       object-fit: cover;
       z-index: -1;
     }}
+    .header-box {{
+      background: rgba(0, 0, 0, 0.6);
+      padding: 20px 30px;
+      border-radius: 20px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }}
+    .header-box h1 {{
+      font-size: 32px;
+      margin-bottom: 15px;
+    }}
+    .stats {{
+      font-size: 24px;
+      line-height: 1.6;
+    }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -150,12 +167,6 @@ def generate_html(images, descriptions, transactions, money):
     .back-btn:hover {{
       background: #666;
     }}
-    .stats {{
-      margin-bottom: 30px;
-      font-size: 24px;
-      line-height: 1.6;
-      text-align: center;
-    }}
   </style>
 </head>
 <body>
@@ -163,10 +174,12 @@ def generate_html(images, descriptions, transactions, money):
     <source src="background.mp4" type="video/mp4">
   </video>
 
-  <h1>Kenji / itsjustkenji's<br>Proof Of Success</h1>
-  <div class="stats">
-    <strong>Total Transactions Done:</strong> {transactions}<br>
-    <strong>Total Money Sold:</strong> {money}
+  <div class="header-box">
+    <h1>Kenji / itsjustkenji's<br>Proof Of Success</h1>
+    <div class="stats">
+      <strong>Total Transactions Done:</strong> {transactions}<br>
+      <strong>Total Money Sold:</strong> {money}
+    </div>
   </div>
 
   <div class="grid">\n"""
@@ -212,4 +225,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions, transactions, money)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with stats from changes.txt and fixed video background.")
+    print(f"✅ Generated index.html with visible header, stats from changes.txt, and video background.")
