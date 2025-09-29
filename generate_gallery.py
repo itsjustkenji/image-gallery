@@ -95,16 +95,11 @@ def generate_html(images, descriptions):
       align-items: flex-start;
       gap: 30px;
       padding: 30px;
-      background: #222;
+      background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b); /* fadish purple gradient */
       border-radius: 30px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       max-width: fit-content;
       max-height: fit-content;
-    }
-    .overlay-box img {
-      max-height: 70vh;
-      max-width: 40vw;
-      border-radius: 20px;
     }
     .desc-wrap {
       display: flex;
