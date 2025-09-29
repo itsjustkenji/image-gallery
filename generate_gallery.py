@@ -42,11 +42,20 @@ def generate_html(images, descriptions):
     body {
       margin: 0;
       font-family: sans-serif;
-      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
       color: #fff;
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    #bgVideo {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -1;
     }
     .grid {
       display: grid;
@@ -73,7 +82,7 @@ def generate_html(images, descriptions):
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.6); /* softened transparency */
+      background: rgba(0, 0, 0, 0.6);
       display: none;
       justify-content: center;
       align-items: center;
@@ -124,6 +133,10 @@ def generate_html(images, descriptions):
   </style>
 </head>
 <body>
+  <video autoplay muted loop id="bgVideo">
+    <source src="background.mp4" type="video/mp4">
+  </video>
+
   <h1>Kenji Gallery</h1>
 
   <div class="grid">\n"""
@@ -164,4 +177,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with softened overlay background and tight layout.")
+    print(f"✅ Generated index.html with video background and refined overlay layout.")
