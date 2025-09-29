@@ -2,6 +2,7 @@ import os
 
 IMAGE_FOLDER = "images"
 DESCRIPTION_FILE = "descriptions.txt"
+CHANGES_FILE = "changes.txt"
 OUTPUT_FILE = "index.html"
 
 def extract_number(filename):
@@ -29,17 +30,29 @@ def load_descriptions():
                     desc_map[key.strip()] = desc.strip()
     return desc_map
 
+def load_stats():
+    transactions = "N/A"
+    money = "N/A"
+    if os.path.exists(CHANGES_FILE):
+        with open(CHANGES_FILE, "r", encoding="utf-8") as f:
+            for line in f:
+                if "Total Transactions Done:" in line:
+                    transactions = line.split("Total Transactions Done:")[1].strip()
+                elif "Total Money Sold:" in line:
+                    money = line.split("Total Money Sold:")[1].strip()
+    return transactions, money
+
 def get_base_name(filename):
     return os.path.splitext(filename)[0]
 
-def generate_html(images, descriptions):
-    html = """<!DOCTYPE html>
+def generate_html(images, descriptions, transactions, money):
+    html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Kenji Proof Gallery</title>
   <style>
-    body {
+    body {{
       margin: 0;
       font-family: sans-serif;
       color: #fff;
@@ -49,16 +62,16 @@ def generate_html(images, descriptions):
       position: relative;
       z-index: 1;
       background: #111;
-    }
-    #bgVideo {
+    }}
+    #bgVideo {{
       position: fixed;
       top: 0; left: 0;
       width: 100vw;
       height: 100vh;
       object-fit: cover;
       z-index: -1;
-    }
-    .grid {
+    }}
+    .grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 10px;
@@ -67,24 +80,24 @@ def generate_html(images, descriptions):
       background: rgba(255, 255, 255, 0.05);
       border-radius: 20px;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-    .grid img {
+    }}
+    .grid img {{
       width: 100%;
       height: auto;
       cursor: pointer;
       border-radius: 12px;
       transition: transform 0.2s;
-    }
-    .grid img:hover {
+    }}
+    .grid img:hover {{
       transform: scale(1.03);
-    }
+    }}
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+    @keyframes fadeIn {{
+      from {{ opacity: 0; }}
+      to {{ opacity: 1; }}
+    }}
 
-    .overlay {
+    .overlay {{
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
@@ -94,8 +107,8 @@ def generate_html(images, descriptions):
       align-items: center;
       z-index: 999;
       animation: fadeIn 0.3s ease forwards;
-    }
-    .overlay-box {
+    }}
+    .overlay-box {{
       display: flex;
       flex-direction: row;
       justify-content: center;
@@ -107,25 +120,25 @@ def generate_html(images, descriptions):
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       max-width: fit-content;
       max-height: fit-content;
-    }
-    .overlay-box img {
+    }}
+    .overlay-box img {{
       max-height: 70vh;
       max-width: 40vw;
       border-radius: 20px;
-    }
-    .desc-wrap {
+    }}
+    .desc-wrap {{
       display: flex;
       flex-direction: column;
       align-items: flex-start;
       justify-content: center;
-    }
-    .desc {
+    }}
+    .desc {{
       font-size: 16px;
       line-height: 1.5;
       margin: 40px 0 20px 0;
       max-width: 400px;
-    }
-    .back-btn {
+    }}
+    .back-btn {{
       background: #444;
       color: #fff;
       border: none;
@@ -133,10 +146,16 @@ def generate_html(images, descriptions):
       border-radius: 12px;
       cursor: pointer;
       align-self: flex-start;
-    }
-    .back-btn:hover {
+    }}
+    .back-btn:hover {{
       background: #666;
-    }
+    }}
+    .stats {{
+      margin-bottom: 30px;
+      font-size: 24px;
+      line-height: 1.6;
+      text-align: center;
+    }}
   </style>
 </head>
 <body>
@@ -145,9 +164,9 @@ def generate_html(images, descriptions):
   </video>
 
   <h1>Kenji / itsjustkenji's<br>Proof Of Success</h1>
-  <div style="margin-bottom: 20px; font-size: 18px;">
-    <strong>Total Transactions Done:</strong> 40<br>
-    <strong>Total Money Sold:</strong> 1600
+  <div class="stats">
+    <strong>Total Transactions Done:</strong> {transactions}<br>
+    <strong>Total Money Sold:</strong> {money}
   </div>
 
   <div class="grid">\n"""
@@ -189,7 +208,8 @@ def generate_html(images, descriptions):
 if __name__ == "__main__":
     images = get_sorted_images()
     descriptions = load_descriptions()
-    html = generate_html(images, descriptions)
+    transactions, money = load_stats()
+    html = generate_html(images, descriptions, transactions, money)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with updated title and transaction stats.")
+    print(f"✅ Generated index.html with stats from changes.txt and fixed video background.")
