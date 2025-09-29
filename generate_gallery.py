@@ -89,21 +89,6 @@ def generate_html(images, descriptions, transactions, money):
       line-height: 1.6;
       margin-bottom: 15px;
     }}
-    .social-buttons {{
-      margin-bottom: 10px;
-    }}
-    .fb-button {{
-      background: #1877f2;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s;
-    }}
-    .fb-button:hover {{
-      background: #145dbf;
-    }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -183,6 +168,23 @@ def generate_html(images, descriptions, transactions, money):
     .back-btn:hover {{
       background: #666;
     }}
+    .fb-float {{
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1877f2;
+      color: #fff;
+      padding: 12px 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      transition: background 0.2s;
+    }}
+    .fb-float:hover {{
+      background: #145dbf;
+    }}
   </style>
 </head>
 <body>
@@ -195,9 +197,6 @@ def generate_html(images, descriptions, transactions, money):
     <div class="stats">
       <strong>Total Transactions Done:</strong> {transactions}<br>
       <strong>Total Money Sold:</strong> {money}
-    </div>
-    <div class="social-buttons">
-      <a href="https://www.facebook.com/itsjustkenji" target="_blank" class="fb-button">Visit Facebook</a>
     </div>
   </div>
 
@@ -217,6 +216,8 @@ def generate_html(images, descriptions, transactions, money):
       </div>
     </div>
   </div>
+
+  <a href="https://www.facebook.com/itsjustkenji" target="_blank" class="fb-float">Visit Facebook</a>
 
   <script>
     function showOverlay(src, desc) {
@@ -244,4 +245,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions, transactions, money)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with Facebook button, visible header, and stats from changes.txt.")
+    print(f"✅ Generated index.html with floating Facebook button and all layout fixes.")
