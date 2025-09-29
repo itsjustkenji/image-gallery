@@ -48,6 +48,7 @@ def generate_html(images, descriptions):
       align-items: center;
       position: relative;
       z-index: 1;
+      background: #111;
     }
     #bgVideo {
       position: fixed;
