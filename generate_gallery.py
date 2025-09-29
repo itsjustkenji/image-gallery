@@ -37,7 +37,7 @@ def generate_html(images, descriptions):
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Kenji Gallery</title>
+  <title>Kenji Proof Gallery</title>
   <style>
     body {
       margin: 0;
@@ -144,7 +144,11 @@ def generate_html(images, descriptions):
     <source src="background.mp4" type="video/mp4">
   </video>
 
-  <h1>Kenji Gallery</h1>
+  <h1>Kenji / itsjustkenji's<br>Proof Of Success</h1>
+  <div style="margin-bottom: 20px; font-size: 18px;">
+    <strong>Total Transactions Done:</strong> 40<br>
+    <strong>Total Money Sold:</strong> 1600
+  </div>
 
   <div class="grid">\n"""
     for img in images:
@@ -188,4 +192,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with fade-in overlay and video background.")
+    print(f"✅ Generated index.html with updated title and transaction stats.")
