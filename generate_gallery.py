@@ -78,6 +78,11 @@ def generate_html(images, descriptions):
       transform: scale(1.03);
     }
 
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
     .overlay {
       position: fixed;
       top: 0; left: 0;
@@ -87,6 +92,7 @@ def generate_html(images, descriptions):
       justify-content: center;
       align-items: center;
       z-index: 999;
+      animation: fadeIn 0.3s ease forwards;
     }
     .overlay-box {
       display: flex;
@@ -95,11 +101,16 @@ def generate_html(images, descriptions):
       align-items: flex-start;
       gap: 30px;
       padding: 30px;
-      background: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+      background: #222;
       border-radius: 30px;
       box-shadow: 0 0 20px rgba(0,0,0,0.5);
       max-width: fit-content;
       max-height: fit-content;
+    }
+    .overlay-box img {
+      max-height: 70vh;
+      max-width: 40vw;
+      border-radius: 20px;
     }
     .desc-wrap {
       display: flex;
@@ -153,9 +164,13 @@ def generate_html(images, descriptions):
 
   <script>
     function showOverlay(src, desc) {
+      const overlay = document.getElementById("overlay");
       document.getElementById("overlayImage").src = src;
       document.getElementById("overlayDesc").textContent = desc;
-      document.getElementById("overlay").style.display = "flex";
+      overlay.style.display = "flex";
+      overlay.style.animation = "none";
+      void overlay.offsetWidth;
+      overlay.style.animation = "fadeIn 0.3s ease forwards";
     }
 
     function closeOverlay() {
@@ -172,4 +187,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with video background and refined overlay layout.")
+    print(f"✅ Generated index.html with fade-in overlay and video background.")
