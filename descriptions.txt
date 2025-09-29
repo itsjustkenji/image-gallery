@@ -1,2 +1,1 @@
-1 TRANS|Lentil seeds from Fabaceae family
-2 TRANS|Rosids subclass leaf structure
+1 TRANS|Transaction: Gcash to Account\nBuyer: Daniel Bautista\nAmount: ₱13\n<a href="https://www.facebook.com/100033217911610" target="_blank">Facebook Profile</a>
