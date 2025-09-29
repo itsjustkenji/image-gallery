@@ -156,6 +156,19 @@ def generate_html(images, descriptions, transactions, money):
       margin: 40px 0 20px 0;
       max-width: 400px;
     }}
+    .desc a {{
+      display: inline-block;
+      margin-top: 10px;
+      background: #1877f2;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }}
+    .desc a:hover {{
+      background: #145dbf;
+    }}
     .back-btn {{
       background: #444;
       color: #fff;
@@ -223,7 +236,7 @@ def generate_html(images, descriptions, transactions, money):
     function showOverlay(src, desc) {
       const overlay = document.getElementById("overlay");
       document.getElementById("overlayImage").src = src;
-      document.getElementById("overlayDesc").textContent = desc;
+      document.getElementById("overlayDesc").innerHTML = desc;
       overlay.style.display = "flex";
       overlay.style.animation = "none";
       void overlay.offsetWidth;
@@ -245,4 +258,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions, transactions, money)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with floating Facebook button and all layout fixes.")
+    print(f"✅ Generated index.html with multiline descriptions and Facebook links inside overlay.")
