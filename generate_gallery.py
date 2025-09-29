@@ -258,4 +258,4 @@ if __name__ == "__main__":
     html = generate_html(images, descriptions, transactions, money)
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.write(html)
-    print(f"✅ Generated index.html with multiline descriptions and Facebook links inside overlay.")
+    print(f"✅ Generated index.html with embedded Facebook links in descriptions.")
